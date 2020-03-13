@@ -14,9 +14,9 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
-    @Test
-    public void login(){
-        assertEquals(global_test.test_username("abcd"),true);
-    }
+//    @Test
+//    public void login(){
+//        assertEquals(global_test.test_username("abcd"),true);
+//    }
 
 }
