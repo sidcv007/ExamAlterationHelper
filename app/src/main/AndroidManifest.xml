@@ -40,7 +40,8 @@
         <activity android:name=".forgot_password" />
         <activity android:name=".select_date_request" />
         <activity android:name=".received_requests" />
-        <activity android:name=".update_request"></activity>
+        <activity android:name=".update_request" />
+        <activity android:name=".report_gen"></activity>
     </application>
 
 </manifest>

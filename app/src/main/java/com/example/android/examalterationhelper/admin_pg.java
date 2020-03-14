@@ -82,15 +82,23 @@ public class admin_pg extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_rcvd_req) {
-            startActivity(new Intent(getApplicationContext(),received_requests.class));
+            if(global.username.equals("cb.en.adm001")){
+                startActivity(new Intent(getApplicationContext(),received_requests.class));
+            }
         } else if (id == R.id.nav_request) {
-            startActivity(new Intent(getApplicationContext(),select_date_request.class));
+            String subs = global.username.substring(0,9);
+            if(subs.equals("cb.en.fac")){
+                startActivity(new Intent(getApplicationContext(),select_date_request.class));
+            }
         } else if (id == R.id.nav_timetable) {
             startActivity(new Intent(getApplicationContext(),select_exam_date.class));
         } else if (id == R.id.nav_update) {
             startActivity(new Intent(getApplicationContext(),update_details.class));
-        } else if (id == R.id.nav_share) {
-
+        } else if (id == R.id.nav_report) {
+            String subs = global.username.substring(0,9);
+            if(subs.equals("cb.en.fac")){
+                startActivity(new Intent(getApplicationContext(),register_fac.class));
+            }
         } else if (id == R.id.nav_send) {
 
         }

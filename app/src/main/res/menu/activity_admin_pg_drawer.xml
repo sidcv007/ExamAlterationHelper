@@ -6,11 +6,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_rcvd_req"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_request_black_24dp"
             android:title="Requests Received" />
         <item
             android:id="@+id/nav_request"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_request_black_24dp"
             android:title="Request Alteration" />
         <item
             android:id="@+id/nav_timetable"
@@ -26,18 +26,15 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="Register"
             />
+
     </group>
 
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_report"
+                android:icon="@drawable/ic_report_black_24dp"
+                android:title="Report" />
         </menu>
     </item>
 
