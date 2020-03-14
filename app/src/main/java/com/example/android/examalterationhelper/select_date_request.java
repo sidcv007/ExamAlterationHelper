@@ -56,26 +56,32 @@ public class select_date_request extends AppCompatActivity implements AdapterVie
         global.req_time=time.getText().toString();
 //        progressDialog.setMessage("Updating...");
 //        progressDialog.show();
-        AsyncHttpClient client = new AsyncHttpClient();
-        RequestParams params = new RequestParams();
-        params.add("date",global.req_date);
-        params.add("time",global.req_time);
-        params.add("username",global.username);
-        client.post("https://examalthelper.000webhostapp.com/update_req.php", params, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-               // progressDialog.dismiss();
-                Toast.makeText(select_date_request.this, new String(responseBody), Toast.LENGTH_LONG).show();
-                Intent i = new Intent(getApplicationContext(), admin_pg.class);
-                startActivity(i);
-            }
+        global.req_time = global.req_time.toUpperCase();
+        if(!(global.req_time.equals("AN")||global.req_time.equals("FN"))){
+            Toast.makeText(select_date_request.this,"Enter a valid time",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            AsyncHttpClient client = new AsyncHttpClient();
+            RequestParams params = new RequestParams();
+            params.add("date",global.req_date);
+            params.add("time",global.req_time);
+            params.add("username",global.username);
+            client.post("https://examalthelper.000webhostapp.com/update_req.php", params, new AsyncHttpResponseHandler() {
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                    // progressDialog.dismiss();
+                    Toast.makeText(select_date_request.this, new String(responseBody), Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(getApplicationContext(), admin_pg.class);
+                    startActivity(i);
+                }
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                //progressDialog.dismiss();
-                Toast.makeText(select_date_request.this, "Process Failed", Toast.LENGTH_LONG).show();
-            }
-        });
+                @Override
+                public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                    //progressDialog.dismiss();
+                    Toast.makeText(select_date_request.this, "Process Failed", Toast.LENGTH_LONG).show();
+                }
+            });
+        }
     }
 
     @Override

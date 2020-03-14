@@ -64,42 +64,83 @@ public class register_fac extends AppCompatActivity {
         }
     }
     public void reg(View view){
-
+        int flag=0;
         str_username1 = ed_username1.getText().toString();
         str_password1 = ed_password1.getText().toString();
         str_email1 = ed_email1.getText().toString();
         str_phno1 = ed_phno1.getText().toString();
         str_name1 = ed_name1.getText().toString();
-        global_test.run = str_username1;
-        global_test.rps = str_password1;
-        global_test.remi = str_email1;
-        global_test.rphno = str_phno1;
-        global_test.rnm = str_name1;
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please Wait");
-        progressDialog.show();
-        final AsyncHttpClient client = new AsyncHttpClient();
-        final RequestParams params = new RequestParams();
+        if(str_username1.length()!=12||!(str_username1.substring(0,9).equals("cb.en.fac"))){
+            flag=1;
+            Toast.makeText(register_fac.this,"Enter a valid username, like: cb.en.fac001",Toast.LENGTH_SHORT).show();
+        }
+        if(str_password1.length()<6){
+            flag=1;
+            Toast.makeText(register_fac.this,"Password should be atleast 8 characters long",Toast.LENGTH_SHORT).show();
+        }
+        if(str_email1.length()==0){
+            flag=1;
+            Toast.makeText(register_fac.this,"enter a valid email",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            int len = str_email1.length();
+            if(!(str_email1.substring(len-10,len).equals("@gmail.com"))){
+                flag=1;
+                Toast.makeText(register_fac.this,"enter a valid email",Toast.LENGTH_SHORT).show();
+            }
+        }
+        if(str_phno1.length()!=10){
+            flag=1;
+            Toast.makeText(register_fac.this,"enter a valid phone number",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            int len = str_phno1.length();
+            for(int i=0;i<len;i++){
+                if(str_phno1.charAt(i)>='0'&&str_phno1.charAt(i)<='9'){
 
-        params.add("username", str_username1);
-        params.add("password", str_password1);
-        params.add("name", str_name1);
-        params.add("phone_number", str_phno1);
-        params.add("email", str_email1);
+                }
+                else{
+                    flag=1;
+                    Toast.makeText(register_fac.this,"enter a valid phone number",Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+        if(str_name1.length()==0){
+            flag=1;
+            Toast.makeText(register_fac.this,"enter a valid name",Toast.LENGTH_SHORT).show();
+        }
+        if(flag==0){
+            global_test.run = str_username1;
+            global_test.rps = str_password1;
+            global_test.remi = str_email1;
+            global_test.rphno = str_phno1;
+            global_test.rnm = str_name1;
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage("Please Wait");
+            progressDialog.show();
+            final AsyncHttpClient client = new AsyncHttpClient();
+            final RequestParams params = new RequestParams();
 
-        client.post("https://examalthelper.000webhostapp.com/register.php", params, new AsyncHttpResponseHandler() {
+            params.add("username", str_username1);
+            params.add("password", str_password1);
+            params.add("name", str_name1);
+            params.add("phone_number", str_phno1);
+            params.add("email", str_email1);
 
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                        progressDialog.dismiss();
-                        Toast.makeText(register_fac.this, new String(responseBody), Toast.LENGTH_LONG).show();
-                    }
+            client.post("https://examalthelper.000webhostapp.com/register.php", params, new AsyncHttpResponseHandler() {
 
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                    progressDialog.dismiss();
+                    Toast.makeText(register_fac.this, new String(responseBody), Toast.LENGTH_LONG).show();
+                }
 
-                    }
-                });
+                @Override
+                public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+                }
+            });
+        }
 
     }
 }
