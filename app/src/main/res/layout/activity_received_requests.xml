@@ -10,8 +10,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="REQUESTS RECIEVED"
+        android:textSize="20dp"
+        android:id="@+id/req_title"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/req_title"
+        android:paddingTop="20dp"
         android:id="@+id/tv1"
         android:textSize="20dp"
+        android:textColor="#0f0f0f"
         android:text=""
         android:onClick="update_req1"
         />
@@ -21,6 +32,7 @@
         android:id="@+id/tv2"
         android:layout_below="@id/tv1"
         android:textSize="20dp"
+        android:textColor="#0f0f0f"
         android:text=""
         android:onClick="update_req2"
         />
@@ -30,6 +42,7 @@
         android:id="@+id/tv3"
         android:layout_below="@id/tv2"
         android:textSize="20dp"
+        android:textColor="#0f0f0f"
         android:text=""
         android:onClick="update_req3"
         />
@@ -39,6 +52,7 @@
         android:id="@+id/tv4"
         android:layout_below="@id/tv3"
         android:textSize="20dp"
+        android:textColor="#0f0f0f"
         android:text=""
         android:onClick="update_req4"
         />
@@ -46,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tv5"
+        android:textColor="#0f0f0f"
         android:layout_below="@id/tv4"
         android:textSize="20dp"
         android:text=""
@@ -55,6 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tv6"
+        android:textColor="#0f0f0f"
         android:layout_below="@id/tv5"
         android:textSize="20dp"
         android:text=""
@@ -66,6 +82,7 @@
         android:id="@+id/tv7"
         android:layout_below="@id/tv6"
         android:textSize="20dp"
+        android:textColor="#0f0f0f"
         android:text=""
         android:onClick="update_req7"
         />
@@ -75,6 +92,7 @@
         android:id="@+id/tv8"
         android:layout_below="@id/tv7"
         android:textSize="20dp"
+        android:textColor="#0f0f0f"
         android:text=""
         android:onClick="update_req8"
         />
@@ -84,6 +102,7 @@
         android:id="@+id/tv9"
         android:layout_below="@id/tv8"
         android:textSize="20dp"
+        android:textColor="#0f0f0f"
         android:text=""
         android:onClick="update_req9"
         />
@@ -93,6 +112,7 @@
         android:id="@+id/tv10"
         android:layout_below="@id/tv9"
         android:textSize="20dp"
+        android:textColor="#0f0f0f"
         android:text=""
         android:onClick="update_req10"
         />
@@ -102,6 +122,7 @@
         android:id="@+id/tv11"
         android:layout_below="@id/tv10"
         android:textSize="20dp"
+        android:textColor="#0f0f0f"
         android:text=""
         android:onClick="update_req11"
         />
@@ -111,6 +132,7 @@
         android:id="@+id/tv12"
         android:layout_below="@id/tv11"
         android:textSize="20dp"
+        android:textColor="#0f0f0f"
         android:text=""
         android:onClick="update_req12"
         />
@@ -120,6 +142,7 @@
         android:id="@+id/tv13"
         android:layout_below="@id/tv12"
         android:textSize="20dp"
+        android:textColor="#0f0f0f"
         android:text=""
         android:onClick="update_req13"
         />
@@ -129,6 +152,7 @@
         android:id="@+id/tv14"
         android:layout_below="@id/tv13"
         android:textSize="20dp"
+        android:textColor="#0f0f0f"
         android:text=""
         android:onClick="update_req14"
         />
@@ -138,6 +162,7 @@
         android:id="@+id/tv15"
         android:layout_below="@id/tv14"
         android:textSize="20dp"
+        android:textColor="#0f0f0f"
         android:text=""
         android:onClick="update_req15"
         />
