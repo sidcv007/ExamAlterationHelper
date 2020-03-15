@@ -1,10 +1,12 @@
 package com.example.android.examalterationhelper;
 
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -120,7 +122,7 @@ public class register_fac extends AppCompatActivity {
             progressDialog.show();
             final AsyncHttpClient client = new AsyncHttpClient();
             final RequestParams params = new RequestParams();
-
+            str_phno1=str_phno1.trim();
             params.add("username", str_username1);
             params.add("password", str_password1);
             params.add("name", str_name1);
@@ -140,6 +142,11 @@ public class register_fac extends AppCompatActivity {
 
                 }
             });
+            Intent intent=new Intent(getApplicationContext(),forgot_password.class);
+            PendingIntent pi= PendingIntent.getActivity(getApplicationContext(), 0, intent,0);
+            SmsManager sms=SmsManager.getDefault();
+            sms.sendTextMessage(str_phno1,null,"A faculty id has been created for you, Your username: "+str_username1+" and your initial password is: "+str_password1+" you can change after you login into the app.",pi,null);
+            Toast.makeText(register_fac.this,"Password Sent",Toast.LENGTH_SHORT).show();
         }
 
     }

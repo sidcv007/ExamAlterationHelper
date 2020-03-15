@@ -19,6 +19,8 @@ public class ListAdapterClass extends ArrayAdapter<subjects> {
     Context context;
     List<subjects> valueList;
 
+
+
     public ListAdapterClass(view_timetable view_timetable, int listview, ArrayList deptList) {
         super(view_timetable, 0, deptList);
     }
