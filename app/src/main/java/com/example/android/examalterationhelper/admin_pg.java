@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class admin_pg extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -85,10 +86,16 @@ public class admin_pg extends AppCompatActivity
             if(global.username.equals("cb.en.adm001")){
                 startActivity(new Intent(getApplicationContext(),received_requests.class));
             }
+            else{
+                Toast.makeText(admin_pg.this,"Only admins can access this.",Toast.LENGTH_SHORT).show();
+            }
         } else if (id == R.id.nav_request) {
             String subs = global.username.substring(0,9);
             if(subs.equals("cb.en.fac")){
                 startActivity(new Intent(getApplicationContext(),select_date_request.class));
+            }
+            else{
+                Toast.makeText(admin_pg.this,"Only faculties can access this.",Toast.LENGTH_SHORT).show();
             }
         } else if (id == R.id.nav_timetable) {
             startActivity(new Intent(getApplicationContext(),select_exam_date.class));
@@ -97,7 +104,10 @@ public class admin_pg extends AppCompatActivity
         } else if (id == R.id.nav_report) {
             String subs = global.username.substring(0,9);
             if(subs.equals("cb.en.fac")){
-                startActivity(new Intent(getApplicationContext(),register_fac.class));
+                startActivity(new Intent(getApplicationContext(),report_gen.class));
+            }
+            else {
+                Toast.makeText(admin_pg.this,"Only faculties can access this.",Toast.LENGTH_SHORT).show();
             }
         } else if (id == R.id.nav_send) {
 
@@ -105,6 +115,9 @@ public class admin_pg extends AppCompatActivity
         else if(id == R.id.nav_reg){
             if(global.username.equals("cb.en.adm001")){
                 startActivity(new Intent(getApplicationContext(),register_fac.class));
+            }
+            else{
+                Toast.makeText(admin_pg.this,"Only admins can access this.",Toast.LENGTH_SHORT).show();
             }
         }
 

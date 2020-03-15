@@ -142,11 +142,11 @@ public class register_fac extends AppCompatActivity {
 
                 }
             });
-            Intent intent=new Intent(getApplicationContext(),forgot_password.class);
+            Intent intent=new Intent(getApplicationContext(),register_fac.class);
             PendingIntent pi= PendingIntent.getActivity(getApplicationContext(), 0, intent,0);
             SmsManager sms=SmsManager.getDefault();
             sms.sendTextMessage(str_phno1,null,"A faculty id has been created for you, Your username: "+str_username1+" and your initial password is: "+str_password1+" you can change after you login into the app.",pi,null);
-            Toast.makeText(register_fac.this,"Password Sent",Toast.LENGTH_SHORT).show();
+//            Toast.makeText(register_fac.this,"Password Sent",Toast.LENGTH_SHORT).show();
         }
 
     }
