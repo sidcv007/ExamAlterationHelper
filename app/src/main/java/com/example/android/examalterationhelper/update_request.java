@@ -1,5 +1,6 @@
 package com.example.android.examalterationhelper;
 
+import android.content.Intent;
 import android.icu.util.ValueIterator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,8 +28,8 @@ public class update_request extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_request);
-        blocke = (TextView) findViewById(R.id.block_edit_req);
-        roome = (TextView) findViewById(R.id.room_edit_req);
+//        blocke = (TextView) findViewById(R.id.block_edit_req);
+//        roome = (TextView) findViewById(R.id.room_edit_req);
         namee = (EditText) findViewById(R.id.name_edit_req);
         timee = (TextView) findViewById(R.id.time_edit_req);
         datee = (TextView) findViewById(R.id.date_edit_req);
@@ -123,6 +124,7 @@ public class update_request extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 log.v("deletemsg",responseBody.toString());
+//                startActivity(new Intent(getApplicationContext(),admin_pg.class));
             }
 
             @Override
