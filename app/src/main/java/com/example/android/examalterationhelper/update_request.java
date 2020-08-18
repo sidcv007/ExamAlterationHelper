@@ -124,7 +124,27 @@ public class update_request extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 log.v("deletemsg",responseBody.toString());
-//                startActivity(new Intent(getApplicationContext(),admin_pg.class));
+                startActivity(new Intent(getApplicationContext(),admin_pg.class));
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+            }
+        });
+    }
+
+    public void delete_req1(View view) {
+        String un = global.upreq_res[2];
+        log.v("deleteun",un);
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        params.add("username",un);
+        client.post("https://examalthelper.000webhostapp.com/delete_req.php", params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                log.v("deletemsg",responseBody.toString());
+                startActivity(new Intent(getApplicationContext(),admin_pg.class));
             }
 
             @Override
